@@ -34,6 +34,7 @@ Latest
 
 3. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with truffle.
 ```bash
+npm i
 export  MNEMONIC='YOUR MNEMONIC HERE'
 # Update the deployer `from` address in truffle.js
 npm run compile
