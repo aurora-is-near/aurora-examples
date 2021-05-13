@@ -1,7 +1,7 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const {abi, bytecode} = require('../build/contracts/Migrations.json');
-const provider = new HDWalletProvider('MY MNEMONIC HERE', 'https://rpc.testnet.aurora.dev:8545');
+const provider = new HDWalletProvider('hat reason appear skin twelve tag monster account sniff grid pulp river', 'https://rpc.testnet.aurora.dev:8545');
 const web3 = new Web3(provider);
 web3.setProvider(provider); // <=======================
 

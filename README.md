@@ -36,6 +36,8 @@ Latest
 ```bash
 npm i
 export  MNEMONIC='YOUR MNEMONIC HERE'
+# For Ropsten, set the INFURA_TOKEN
+export INFURA_TOKEN='YOUR INFURA TOKEN HERE'
 # Update the deployer `from` address in truffle.js
 npm run compile
 npm run deploy:aurora

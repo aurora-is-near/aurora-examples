@@ -1,5 +1,6 @@
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const NonceTrackerSubprovider = require('web3-provider-engine/subproviders/nonce-tracker')
+const utils = require('web3-utils')
 // export MNEMONIC = ''
 const MNEMONIC = process.env.MNEMONIC || process.env.NMEMORIC
 const hdWalletStartIndex = 0
@@ -34,6 +35,13 @@ module.exports = {
       network_id: 0x4e454153, // 1313161555
       gas: 10000000,
       from: '0x6A33382de9f73B846878a57500d055B981229ac4'
-    }
+    },
+    ropsten: {
+      provider: () => setupWallet(`https://ropsten.infura.io/v3/${process.env.INFURA_TOKEN}`),
+      network_id: 0x3,
+      from: '0x6A33382de9f73B846878a57500d055B981229ac4',
+      gas: 3 * 1000000,
+      gasPrice: utils.toWei('8', 'gwei')
+  },
   }
 };
