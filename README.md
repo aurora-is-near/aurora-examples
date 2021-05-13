@@ -13,16 +13,15 @@ There are a few technical requirements before we start. Please install the follo
 # Environment
 ```bash
 $ node -v
-v8.11.1
-
+v10.23.0\
 $ npm -v
-5.6.0
+6.14.8
 
 $ truffle version
 
-Truffle v4.1.8 (core: 4.1.8)
+Truffle v5.1.37
 
-Solidity v0.4.23 (solc-js)
+Solidity v0.5.17 (solc-js)
 ```
 # Ganache
 Latest
@@ -35,6 +34,8 @@ Latest
 
 3. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with truffle.
 ```bash
+export  MNEMONIC='YOUR MNEMONIC HERE'
+# Update the deployer `from` address in truffle.js
 npm run compile
 npm run deploy:aurora
 ```
