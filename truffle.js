@@ -15,7 +15,8 @@ const setupWallet = (
             MNEMONIC,
             url,
             hdWalletStartIndex,
-            hdWalletAccounts)
+            hdWalletAccounts,
+	)
         hdWalletProvider.engine.addProvider(new NonceTrackerSubprovider())
     }
     return hdWalletProvider
@@ -33,7 +34,7 @@ module.exports = {
     aurora: {
       provider: () => setupWallet('https://rpc.testnet.aurora.dev:8545'),
       network_id: 0x4e454153,
-      gas: 3 * 10000000,
+      gas: 10000000,
       from: '0x6A33382de9f73B846878a57500d055B981229ac4'
     },
     ropsten: {
