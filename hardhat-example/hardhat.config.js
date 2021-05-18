@@ -8,7 +8,7 @@ require("@nomiclabs/hardhat-waffle");
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
 // Be aware of NEVER putting real Ether into testing accounts
-const AURORA_PRIVATE_KEY = "c666b09678718ac35d11d3719103e1147bc4954e16f903c1b34a5d72b172ccdd";
+const AURORA_PRIVATE_KEY = "ADD YOUR PRIVAYE KEY HERE";
 
 module.exports = {
   solidity: "0.7.3",
