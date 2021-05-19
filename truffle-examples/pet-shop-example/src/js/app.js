@@ -25,7 +25,6 @@ App = {
 
   initWeb3: function() {
     // Is there an injected web3 instance ?
-    console.log(web3.currentProvider);
     if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider;
     }
@@ -34,9 +33,7 @@ App = {
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
     }
 
-    console.log(App.web3Provider);
     web3 = new Web3(App.web3Provider);
-    web3.version.getNetwork(function(err,res){console.log(`connected to network id: ${res}`)})
     return App.initContract();
   },
 

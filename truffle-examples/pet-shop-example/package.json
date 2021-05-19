@@ -16,7 +16,7 @@
     "deploy:aurora": "npm run clean && npm run compile && export NETWORK='aurora' && truffle migrate --network aurora",
     "deploy:ropsten": "npm run clean && npm run compile && export NETWORK='ropsten' && truffle migrate --network ropsten"
   },
-  "author": "",
+  "author": "dev@aurora.dev",
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.3.0",

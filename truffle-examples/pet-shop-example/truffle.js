@@ -32,7 +32,7 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     aurora: {
-      provider: () => setupWallet('https://rpc.testnet.aurora.dev:8545'),
+      provider: () => setupWallet('https://testnet.aurora.dev'),
       network_id: 0x4e454153,
       gas: 10000000,
       from: '0x6A33382de9f73B846878a57500d055B981229ac4'
@@ -43,6 +43,6 @@ module.exports = {
       from: '0x6A33382de9f73B846878a57500d055B981229ac4',
       gas: 3 * 1000000,
       gasPrice: utils.toWei('8', 'gwei')
-  },
+    }
   }
 };
