@@ -8,13 +8,19 @@ require("@nomiclabs/hardhat-waffle");
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
 // Be aware of NEVER putting real Ether into testing accounts
-const AURORA_PRIVATE_KEY = "ADD YOUR PRIVAYE KEY HERE";
+require('dotenv').config();
+
+const AURORA_PRIVATE_KEY = process.env.AURORA_PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.7.3",
   networks: {
     aurora: {
       url: 'https://rpc.testnet.aurora.dev:8545',
+      accounts: [`0x${AURORA_PRIVATE_KEY}`]
+    },
+    testnet_aurora: {
+      url: 'https://develop.rpc.testnet.aurora.dev:8545',
       accounts: [`0x${AURORA_PRIVATE_KEY}`]
     },
     ropsten: {
