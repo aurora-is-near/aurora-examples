@@ -8,7 +8,6 @@ contract Adoption {
         require(petID >= 0 && petID <= 15);
         adopters[petID] = msg.sender;
         return petID;
-
     }
 
     //Retrieving the adopters

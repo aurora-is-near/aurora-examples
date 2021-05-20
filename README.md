@@ -6,7 +6,7 @@ This repository includes DApp boilerplates for [truffle](https://www.trufflesuit
 - Node 12+
 
 ## Examples
-- [Truffle-Pet-shop](truffle-example/)
+- [Truffle-examples](truffle-example/)
 - [Hardhat-example](hardhat-example/)
 
 ## Contributing
