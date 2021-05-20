@@ -15,11 +15,11 @@ const AURORA_PRIVATE_KEY = process.env.AURORA_PRIVATE_KEY;
 module.exports = {
   solidity: "0.7.3",
   networks: {
-    aurora: {
+    testnet_aurora: {
       url: 'https://rpc.testnet.aurora.dev:8545',
       accounts: [`0x${AURORA_PRIVATE_KEY}`]
     },
-    testnet_aurora: {
+    develop_aurora: {
       url: 'https://develop.rpc.testnet.aurora.dev:8545',
       accounts: [`0x${AURORA_PRIVATE_KEY}`]
     },
