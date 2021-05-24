@@ -58,7 +58,7 @@ App = {
 
 App.contracts.Adoption.deployed().then(function(instance) {
   adoptionInstance = instance;
-  return adoptionInstance.getAdopters.call();
+  return adoptionInstance.getAdopters();
 }).then(function(adopters) {
   for (i = 0; i < adopters.length; i++) {
     if (adopters[i] !== '0x0000000000000000000000000000000000000000') {

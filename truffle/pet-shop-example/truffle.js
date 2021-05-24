@@ -37,6 +37,12 @@ module.exports = {
       gas: 10000000,
       from: '0x6A33382de9f73B846878a57500d055B981229ac4'
     },
+    testnet: {
+      provider: () => setupWallet('http://localhost:8545'),
+      network_id: 0x4e454153,
+      gas: 10000000,
+      from: '0x6A33382de9f73B846878a57500d055B981229ac4'
+    },
     ropsten: {
       provider: () => setupWallet(`https://ropsten.infura.io/v3/${process.env.INFURA_TOKEN}`),
       network_id: 0x3,
