@@ -1,5 +1,6 @@
 var WatermelonToken = artifacts.require("WatermelonToken");
+const BN = require('bignumber.js')
 
 module.exports = function(deployer) {
-    deployer.deploy(WatermelonToken, 1000000);
+    deployer.deploy(WatermelonToken, BN(1000000000000000000000));
 };
