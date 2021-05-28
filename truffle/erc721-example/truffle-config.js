@@ -4,7 +4,7 @@ const utils = require('web3-utils')
 // export MNEMONIC = ''
 const MNEMONIC = process.env.MNEMONIC || process.env.NMEMORIC
 const hdWalletStartIndex = 0
-const hdWalletAccounts = 1
+const hdWalletAccounts = 3
 let hdWalletProvider
 
 const setupWallet = (
@@ -16,6 +16,7 @@ const setupWallet = (
             url,
             hdWalletStartIndex,
             hdWalletAccounts,
+	    true,
 	)
         hdWalletProvider.engine.addProvider(new NonceTrackerSubprovider())
     }
