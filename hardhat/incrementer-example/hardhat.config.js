@@ -1,9 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
 
-// Go to https://www.alchemyapi.io, sign up, create
-// a new App in its dashboard, and replace "KEY" with its key
-// const ALCHEMY_API_KEY = "KEY";
-
 // Replace this private key with your Ropsten account private key
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
@@ -12,8 +8,22 @@ require('dotenv').config();
 
 const AURORA_PRIVATE_KEY = process.env.AURORA_PRIVATE_KEY;
 
+task('get-counter', 'Returns the current counter for the provided Incrementer')
+    .addParam('incrementerAddress', 'Eth address of Incrementer contract')
+    .setAction(async taskArgs => {
+        const { getCounter } = require('./scripts/utils');
+        await getCounter(hre.ethers.provider, taskArgs.incrementerAddress);
+    });
+
+task('increment-counter', 'Increments the counter for the provided Incrementer')
+    .addParam('incrementerAddress', 'Eth address of Incrementer contract')
+    .setAction(async taskArgs => {
+        const { incrementCounter } = require('./scripts/utils');
+        await incrementCounter(hre.ethers.provider, taskArgs.incrementerAddress);
+    });
+
 module.exports = {
-  solidity: "0.7.3",
+  solidity: "0.8.0",
   networks: {
     testnet_aurora: {
       url: 'https://rpc.testnet.aurora.dev:8545',
