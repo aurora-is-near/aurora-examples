@@ -1,4 +1,4 @@
-# Pets-Shop-Aurora-Example
+# Pets-Shop-Aurora-Example [WIP]
 
 Originally cloned from [truffle-box-pet-shop](https://github.com/truffle-box/pet-shop-box).
 
