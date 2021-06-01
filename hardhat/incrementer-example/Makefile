@@ -1,4 +1,4 @@
-NETWORK=develop_aurora
+NETWORK=testnet_aurora
 INCREMENTER_ADDRESS=
 
 deploy:

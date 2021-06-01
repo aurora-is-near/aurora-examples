@@ -26,7 +26,7 @@ module.exports = {
   solidity: "0.8.0",
   networks: {
     testnet_aurora: {
-      url: 'https://rpc.testnet.aurora.dev:8545',
+      url: 'https://testnet.aurora.dev',
       accounts: [`0x${AURORA_PRIVATE_KEY}`]
     },
     develop_aurora: {
