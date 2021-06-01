@@ -9,10 +9,20 @@ require('dotenv').config();
 const AURORA_PRIVATE_KEY = process.env.AURORA_PRIVATE_KEY;
 
 module.exports = {
-  solidity: "0.8",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.0"
+      },
+      {
+        version: "<0.9.0",
+        settings: { } 
+      }
+    ]
+  },
   networks: {
     testnet_aurora: {
-      url: 'https://rpc.testnet.aurora.dev:8545',
+      url: 'https://testnet.aurora.dev',
       accounts: [`0x${AURORA_PRIVATE_KEY}`]
     },
     develop_aurora: {
