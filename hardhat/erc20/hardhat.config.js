@@ -1,5 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
-
+require("./tasks/account");
+require("./tasks/transfer");
+require("./tasks/totalSupply");
 // Replace this private key with your Ropsten account private key
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
@@ -13,12 +15,24 @@ module.exports = {
   networks: {
     testnet_aurora: {
       url: 'https://testnet.aurora.dev',
-      accounts: [`0x${AURORA_PRIVATE_KEY}`]
+      accounts: [`0x${AURORA_PRIVATE_KEY}`],
+      gasLimit: 2000000,
+      gasPrice: 0,
     },
     local_aurora: {
       url: 'http://localhost:8545',
-      accounts: [`0x${AURORA_PRIVATE_KEY}`]
-    }
+      accounts: [`0x${AURORA_PRIVATE_KEY}`],
+      gasLimit: 2000000,
+      gasPrice: 0,
+    },
+    ropsten: {
+      url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [`0x${AURORA_PRIVATE_KEY}`],
+      chainId: 3,
+      live: true,
+      gasPrice: 50000000000,
+      gasMultiplier: 2,
+    },
   }
 };
 
