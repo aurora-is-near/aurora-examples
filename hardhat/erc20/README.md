@@ -15,9 +15,15 @@ This tutorial assumes that you have Node.js 12+ and Yarn. Please refer to the Ya
 
 To install the prerequisite packages, clone the examples repository and then run yarn:
 
+- Add your Aurora Private key (from Metamask) to __.env__ file: <br/>
+
 ```bash
-expor AURORA_PRIVATE_KEY=''
-yarn
+$ echo "AURORA_PRIVATE_KEY=YOUR_AURORA_PRIVATE_KEY_HERE" >> .env`
+yarn install
 ```
 
-## 
+## Deploy ERC20 
+To deploy the `ERC20` token contract, use the following command:
+```bash
+$ make deploy NETWORK=testnet_aurora
+```

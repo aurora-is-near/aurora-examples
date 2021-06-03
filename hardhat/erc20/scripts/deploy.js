@@ -1,20 +1,47 @@
+// We require the Hardhat Runtime Environment explicitly here. This is optional 
+// but useful for running the script in a standalone fashion through `node <script>`.
+//
+// When running the script with `hardhat run <script>` you'll find the Hardhat
+// Runtime Environment's members available in the global scope.
+require('dotenv').config();
 const hre = require("hardhat");
+
 async function main() {
+    // Hardhat always runs the compile task when running scripts with its command
+    // line interface.
+    //
+    // If this script is run directly using `node` you may want to call compile
+    // manually to make sure everything is compiled
+    // await hre.run('compile');
+
     const provider = hre.ethers.provider;
-    const deployer = new hre.ethers.Wallet(process.env.AURORA_PRIVATE_KEY, provider);
+    const deployerWallet = new hre.ethers.Wallet(process.env.AURORA_PRIVATE_KEY, provider);
+
     console.log(
-      "Deploying contracts with the account:",
-      deployer.address
-    );  
-    const Token = await ethers.getContractFactory("WatermelonToken");
-    const token = await Token.deploy(100000);
-  
-    console.log("Token address:", token.address);
-  }
-  
+        "Deploying contracts with the account:",
+        deployerWallet.address
+    );
+
+    console.log(
+        "Account balance:",
+        (await deployerWallet.getBalance()).toString()
+    );
+
+    const WatermelonToken = await hre.ethers.getContractFactory("WatermelonToken");
+    const options = { gasLimit: 1000000 };
+    const watermelonToken = await WatermelonToken
+        .connect(deployerWallet)
+        .deploy(1000000, options);
+    await watermelonToken.deployed();
+
+    console.log("WatermelonToken deployed to:", watermelonToken.address);
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
 main()
-.then(() => process.exit(0))
-.catch(error => {
-    console.error(error);
-    process.exit(1);
-});
+    .then(() => process.exit(0))
+    .catch(error => {
+        console.error(error);
+        process.exit(1);
+    });
