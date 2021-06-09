@@ -2,6 +2,9 @@ require("@nomiclabs/hardhat-waffle");
 require("./tasks/account");
 require("./tasks/transfer");
 require("./tasks/totalSupply");
+require("./tasks/balanceOf");
+require("./tasks/approve");
+require("./tasks/transferFrom");
 // Replace this private key with your Ropsten account private key
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
