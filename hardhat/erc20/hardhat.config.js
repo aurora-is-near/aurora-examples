@@ -19,14 +19,14 @@ module.exports = {
     testnet_aurora: {
       url: 'https://testnet.aurora.dev',
       accounts: [`0x${AURORA_PRIVATE_KEY}`],
-      gasLimit: 2000000,
-      gasPrice: 0,
+      chainId: 1313161555,
+      gasPrice: 120 * 1000000000
     },
     local_aurora: {
       url: 'http://localhost:8545',
       accounts: [`0x${AURORA_PRIVATE_KEY}`],
-      gasLimit: 2000000,
-      gasPrice: 0,
+      chainId: 1313161555,
+      gasPrice: 120 * 1000000000
     },
     ropsten: {
       url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
