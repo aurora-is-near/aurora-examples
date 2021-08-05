@@ -1,0 +1,30 @@
+specVersion: 0.0.2
+description: Aurora Covid Vaccine Token subgraph tutorial
+repository: https://github.com/aurora-is-near/aurora-examples/subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CovidVaccineToken
+    network: aurora
+    source:
+      address: '0x6a82DC18F5a0f694b55A59429402C7F868dA10E4'
+      abi: CovidVaccineToken
+      startBlock: 57941537
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - CovidVaccineToken
+      abis:
+        - name: CovidVaccineToken
+          file: ./abis/CovidVaccineToken.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll

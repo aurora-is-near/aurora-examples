@@ -1,18 +1,15 @@
 {
-  "name": "example",
+  "name": "aurora-subgraph-example",
   "version": "0.1.0",
   "repository": "https://github.com/aurora-is-near/aurora-examples/subgraph",
   "license": "MIT",
   "scripts": {
     "compile": "npx hardhat compile",
-    "prepare:abis": "npx solc contracts/CovidVaccineToken.sol --abi -o abis --overwrite && npx solc contracts/CovidVaccineToken.sol --bin -o bin --overwrite",
-    "create": "graph create example --node https://api.thegraph.com/deploy/",
-    "create:local": "graph create --node http://localhost:8020 aurora/covidVaccine",
-    "codegen": "graph codegen",
-    "build": "graph build",
-    "deploy": "graph deploy example --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy:local": "graph deploy example --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "clean": "rm -rf artifacts/ cache/ abis/* bin/* node_modules",
+    "subgraph:create": "graph create --node http://localhost:8020 aurora/CovidVaccineToken",
+    "subgraph:codegen": "npx graph codegen --output-dir src/types/",
+    "subgraph:build": "graph build",
+    "subgraph:deploy": "graph deploy example --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "clean": "rm -rf artifacts/ cache/ abis/* bin/*",
     "deploy:aurora": "yarn compile && npx hardhat run scripts/deploy.js --network aurora"
   },
   "devDependencies": {
