@@ -1,6 +1,4 @@
-type Gravatar @entity {
+type Vaccinated @entity {
   id: ID!
-  owner: Bytes!
-  tokenId: String!
-  timestamp: Int!
+  count: Int!
 }

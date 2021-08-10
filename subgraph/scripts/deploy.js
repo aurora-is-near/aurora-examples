@@ -4,7 +4,7 @@ const hre = require("hardhat");
 async function main() {
     const provider = hre.ethers.provider;
     const deployerWallet = new hre.ethers.Wallet(process.env.AURORA_PRIVATE_KEY, provider);
-    
+
     console.log(
         "Deploying contracts with the account:",
         deployerWallet.address
@@ -20,7 +20,6 @@ async function main() {
         .connect(deployerWallet)
         .deploy();
     await covidVaccineToken.deployed();
-
     console.log("CovidVaccineToken deployed to:", covidVaccineToken.address);
 }
 
