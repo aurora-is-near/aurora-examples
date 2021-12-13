@@ -1,7 +1,7 @@
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const NonceTrackerSubprovider = require('web3-provider-engine/subproviders/nonce-tracker')
 const utils = require('web3-utils')
-const MNEMONIC = process.env.MNEMONIC || process.env.NMEMORIC
+const MNEMONIC = process.env.MNEMONIC || process.env.MNEMONIC
 const startIndex = 0
 const numberOfAccounts = 3
 let hdWalletProvider
