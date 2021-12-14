@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.1.0",
+    "@openzeppelin/contracts": "^4.4.1",
     "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.2.9",
     "web3-provider-engine": "~15.0.12"
