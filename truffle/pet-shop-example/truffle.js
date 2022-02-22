@@ -1,26 +1,9 @@
-const HDWalletProvider = require('truffle-hdwallet-provider')
+const HDWalletProvider = require('@truffle/hdwallet-provider')
 const NonceTrackerSubprovider = require('web3-provider-engine/subproviders/nonce-tracker')
 const utils = require('web3-utils')
-// export MNEMONIC = ''
-const MNEMONIC = process.env.MNEMONIC || process.env.NMEMORIC
+const MNEMONIC = process.env.MNEMONIC
 const hdWalletStartIndex = 0
-const hdWalletAccounts = 1
-let hdWalletProvider
-
-const setupWallet = (
-    url
-) => {
-    if (!hdWalletProvider) {
-        hdWalletProvider = new HDWalletProvider(
-            MNEMONIC,
-            url,
-            hdWalletStartIndex,
-            hdWalletAccounts,
-	)
-        hdWalletProvider.engine.addProvider(new NonceTrackerSubprovider())
-    }
-    return hdWalletProvider
-}
+const numberOfAddresses = 3
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -31,11 +14,20 @@ module.exports = {
       port: 8545,
       network_id: "*" // Match any network id
     },
-    aurora: {
-      provider: () => setupWallet('https://testnet.aurora.dev'),
-      network_id: 0x4e454153,
+    aurora_testnet: {
+      provider: function() {
+        return new HDWalletProvider({
+          mnemonic: MNEMONIC,
+          providerOrUrl: 'https://testnet.aurora.dev',
+          numberOfAddresses
+        });
+      },
+      network_id: '1313161555',
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4'
+      from: '0x23a824dd17d6571e1badd25a6247c685d6802985',
+      deploymentPollingInterval: 8000,
+      timeoutBlocks: 500,
+      confirmations: 10,
     },
     testnet: {
       provider: () => setupWallet('http://localhost:8545'),

@@ -4,7 +4,6 @@ const utils = require('web3-utils')
 const MNEMONIC = process.env.MNEMONIC
 const startIndex = 0
 const numberOfAddresses = 3
-let hdWalletProvider
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
