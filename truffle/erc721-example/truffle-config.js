@@ -5,6 +5,14 @@ const MNEMONIC = process.env.MNEMONIC
 const startIndex = 0
 const numberOfAddresses = 3
 
+const setupWallet = (url) => {
+  return new HDWalletProvider({
+    mnemonic: MNEMONIC,
+    providerOrUrl: url,
+    numberOfAddresses
+  });
+}
+
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // for more about customizing your Truffle configuration!
@@ -14,17 +22,11 @@ module.exports = {
       port: 8545,
       network_id: "*" // Match any network id
     },
-    aurora_testnet: {
-      provider: function() {
-        return new HDWalletProvider({
-          mnemonic: MNEMONIC,
-          providerOrUrl: 'https://testnet.aurora.dev',
-          numberOfAddresses
-        });
-      },
+    aurora: {
+      provider: () => setupWallet('https://testnet.aurora.dev'),
       network_id: '1313161555',
       gas: 10000000,
-      from: '0x23a824dd17d6571e1badd25a6247c685d6802985',
+      from: '0x6A33382de9f73B846878a57500d055B981229ac4',
       deploymentPollingInterval: 8000,
       timeoutBlocks: 500,
       confirmations: 10,
