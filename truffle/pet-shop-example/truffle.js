@@ -26,7 +26,7 @@ module.exports = {
       provider: () => setupWallet('https://testnet.aurora.dev'),
       network_id: '1313161555',
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4',
+      from: setupWallet('https://testnet.aurora.dev').addresses[0],
       deploymentPollingInterval: 8000,
       timeoutBlocks: 500,
       confirmations: 10,
@@ -35,11 +35,11 @@ module.exports = {
       provider: () => setupWallet('http://localhost:8545'),
       network_id: 0x4e454153,
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4'
+      from: '0x6A33382de9f73B846878a57500d055B981229ac4',
     },
-    ropsten: {
-      provider: () => setupWallet(`https://ropsten.infura.io/v3/${process.env.INFURA_TOKEN}`),
-      network_id: 0x3,
+    goerli: {
+      provider: () => setupWallet(`https://goerli.infura.io/v3/${process.env.INFURA_TOKEN}`),
+      network_id: '5',
       from: '0x6A33382de9f73B846878a57500d055B981229ac4',
       gas: 3 * 1000000,
       gasPrice: utils.toWei('8', 'gwei')
