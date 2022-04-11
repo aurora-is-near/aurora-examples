@@ -1,25 +1,16 @@
-const HDWalletProvider = require('truffle-hdwallet-provider')
+const HDWalletProvider = require('@truffle/hdwallet-provider')
 const NonceTrackerSubprovider = require('web3-provider-engine/subproviders/nonce-tracker')
 const utils = require('web3-utils')
-// export MNEMONIC = ''
-const MNEMONIC = process.env.MNEMONIC || process.env.NMEMORIC
+const MNEMONIC = process.env.MNEMONIC
 const hdWalletStartIndex = 0
-const hdWalletAccounts = 1
-let hdWalletProvider
+const numberOfAddresses = 3
 
-const setupWallet = (
-    url
-) => {
-    if (!hdWalletProvider) {
-        hdWalletProvider = new HDWalletProvider(
-            MNEMONIC,
-            url,
-            hdWalletStartIndex,
-            hdWalletAccounts,
-	)
-        hdWalletProvider.engine.addProvider(new NonceTrackerSubprovider())
-    }
-    return hdWalletProvider
+const setupWallet = (url) => {
+  return new HDWalletProvider({
+    mnemonic: MNEMONIC,
+    providerOrUrl: url,
+    numberOfAddresses
+  });
 }
 
 module.exports = {
@@ -33,19 +24,22 @@ module.exports = {
     },
     aurora: {
       provider: () => setupWallet('https://testnet.aurora.dev'),
-      network_id: 0x4e454153,
+      network_id: '1313161555',
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4'
+      from: setupWallet('https://testnet.aurora.dev').addresses[0],
+      deploymentPollingInterval: 8000,
+      timeoutBlocks: 500,
+      confirmations: 10,
     },
     testnet: {
       provider: () => setupWallet('http://localhost:8545'),
       network_id: 0x4e454153,
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4'
+      from: '0x6A33382de9f73B846878a57500d055B981229ac4',
     },
-    ropsten: {
-      provider: () => setupWallet(`https://ropsten.infura.io/v3/${process.env.INFURA_TOKEN}`),
-      network_id: 0x3,
+    goerli: {
+      provider: () => setupWallet(`https://goerli.infura.io/v3/${process.env.INFURA_TOKEN}`),
+      network_id: '5',
       from: '0x6A33382de9f73B846878a57500d055B981229ac4',
       gas: 3 * 1000000,
       gasPrice: utils.toWei('8', 'gwei')
