@@ -1,0 +1,4 @@
+type Vaccinated @entity {
+  id: ID!
+  count: Int!
+}
