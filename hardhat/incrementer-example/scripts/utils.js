@@ -44,7 +44,7 @@ async function incrementCounter(provider, incrementerAddress) {
     await incrementer.increment();
 
     console.log(
-        "Counter value in Incrementer before incrementation: ",
+        "Counter value in Incrementer after incrementation: ",
         (await incrementer.getCounter()).toString()
     );
 }
