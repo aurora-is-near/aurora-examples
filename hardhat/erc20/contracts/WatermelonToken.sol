@@ -7,4 +7,8 @@ contract WatermelonToken is ERC20 {
     constructor(uint256 initialSupply) ERC20("Watermelon", "WTM") {
         _mint(msg.sender, initialSupply);
     }
+
+    function decimals() public pure override(ERC20) returns (uint8) {
+        return 0;
+    }
 }
