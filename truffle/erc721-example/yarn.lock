@@ -352,10 +352,10 @@
   resolved "https://registry.yarnpkg.com/@metamask/safe-event-emitter/-/safe-event-emitter-2.0.0.tgz#af577b477c683fad17c619a78208cede06f9605c"
   integrity sha512-/kSXhY692qiV1MXu6EeOZvg5nECLclxNXcKCxJ3cXQgYuRymRHpdx/t7JXfsK+JLjwA1e1c1/SBrlQYpusC29Q==
 
-"@openzeppelin/contracts@^4.7.1":
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.7.1.tgz#33d0a857b76b18d313e6bb6ed28cdaf367e90cfe"
-  integrity sha512-UXmAjKARsXORHlHZu5GCD7ZbRKm6nU8UHnbuT/QJJa2JEOEcbvV/X8w/sUk62Sl9VZuuljM1akrZLyAtzUgsxw==
+"@openzeppelin/contracts@^4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.7.3.tgz#939534757a81f8d69cc854c7692805684ff3111e"
+  integrity sha512-dGRS0agJzu8ybo44pCIf3xBaPQN/65AIXNgK8+4gzKd5kbvlqyxryUYVLJv7fK98Seyd2hDZzVEHSWAh0Bt1Yw==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
